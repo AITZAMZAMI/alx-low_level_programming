@@ -16,6 +16,7 @@ void print_osabi(unsigned char *e_ident);
 void print_type(unsigned int e_type, unsigned char *e_ident);
 void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
+
 void check_elf(unsigned char *e_ident)
 {
 	int index;
@@ -32,6 +33,7 @@ void check_elf(unsigned char *e_ident)
 		}
 	}
 }
+
 void print_magic(unsigned char *e_ident)
 {
 	int index;
@@ -48,6 +50,7 @@ void print_magic(unsigned char *e_ident)
 			printf(" ");
 	}
 }
+
 void print_class(unsigned char *e_ident)
 {
 	printf(" Class: ");
@@ -67,6 +70,7 @@ void print_class(unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
+
 void print_data(unsigned char *e_ident)
 {
 	printf(" Data: ");
@@ -86,6 +90,7 @@ void print_data(unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
+
 void print_version(unsigned char *e_ident)
 {
 	 printf(" Version: %d",
@@ -101,6 +106,7 @@ void print_version(unsigned char *e_ident)
 		break;
 	}
 }
+
 void print_osabi(unsigned char *e_ident)
 {
 	printf(" OS/ABI: ");
@@ -141,11 +147,13 @@ void print_osabi(unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
 }
+
 void print_abi(unsigned char *e_ident)
 {
 	printf(" ABI Version: %d\n",
 		e_ident[EI_ABIVERSION]);
 }
+
 void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
@@ -174,6 +182,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_type);
 	}
 }
+
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf(" Entry point address: ");
@@ -191,6 +200,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 	else
 		printf("%#lx\n", e_entry);
 }
+
 void close_elf(int elf)
 {
 	if (close(elf) == -1)
@@ -200,6 +210,7 @@ void close_elf(int elf)
 		exit(98);
 	}
 }
+
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
@@ -242,4 +253,5 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	close_elf(o);
 	return (0);
 }
+
 
