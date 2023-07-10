@@ -264,7 +264,8 @@ void close_elf(int elf)
  * ELF header at the start of an ELF file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
- *
+ * wach frasskom bli ana smiiti mo3ad.
+ * o bli ana kantfrj fl anime.
  * Return: 0 on success.
  *
  * Description: If the file is not an ELF File or
